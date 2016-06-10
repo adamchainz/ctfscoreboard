@@ -36,3 +36,6 @@ class ConfigzTest(base.RestTestCase):
         with self.admin_client as c:
             response = c.get(self.PATH)
             self.assert200(response)
+            parsed = self.parseJSON(response.data)
+            self.assertIsInstance(parsed, basestring)
+            self.assertStartsWith(parsed, '<Config ')

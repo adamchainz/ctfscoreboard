@@ -13,6 +13,7 @@
 # limitations under the License.
 
 
+import json
 import logging
 import os.path
 import unittest
@@ -53,6 +54,15 @@ class BaseTestCase(flask_testing.TestCase):
         models.db.session.remove()
         models.db.drop_all()
         super(BaseTestCase, self).tearDown()
+
+    def assertStartsWith(self, haystack, needle):
+        self.assertTrue(haystack.startswith(needle))
+
+    @staticmethod
+    def parseJSON(data):
+        if data.startswith(")]}',\n"):
+            return json.loads(data[len(")]}',\n"):])
+        return json.loads(data)
 
 
 class RestTestCase(BaseTestCase):
