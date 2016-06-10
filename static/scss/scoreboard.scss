@@ -268,11 +268,11 @@ table.team-players{
                             border-top: 2px solid #42A5F5;
                             background-color: #1E88E5;
 
-                            &:nth-child(2), #{$dummy} {
+                            &:nth-child(2), &:first-child {
                                 border-bottom-left-radius: 6px;
                             }
 
-                            &:last-child, #{$dummy} {
+                            &:last-child {
                                 border-bottom-right-radius: 6px;
                             }
 

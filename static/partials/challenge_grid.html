@@ -21,7 +21,7 @@
 
 <div class='row jeopardy-container'>
   <div class='jeopardy-col' ng-repeat='cat in categories'>
-    <div class='jeopardy-chall jeopardy-box' ng-repeat='chall in cat.challenges'
+    <div class='jeopardy-chall jeopardy-box' ng-repeat='chall in sortChalls(cat.challenges)'
       ng-click='goChallenge(chall)' ng-class='{solved: chall.answered}'
       ng-show='tagsAllowed(chall)'
       ><div class='flipper'>

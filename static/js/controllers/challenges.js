@@ -178,6 +178,14 @@ challengeCtrls.controller('ChallengeGridCtrl', [
         return sentiments[$scope.shownTags[tag.tagslug]];
       }
 
+      $scope.sortChalls = function(challs) {
+        console.log(challs);
+        challs.sort(function(a, b) {
+          return a.points > b.points
+        })
+        return challs;
+      }
+
       sessionService.requireLogin(function() {
         refresh();
         loadingService.stop();
